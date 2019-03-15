@@ -6,7 +6,7 @@ RUN		apt-get update; apt-get -y upgrade
 
 #Instalo dependencias para la compilacion y compilacion 
 RUN		apt-get -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget; \
-		apt-get -y install curl nodejs node-less git libpq-dev  libldap2-dev libsasl2-dev; \
+		apt-get -y install curl nodejs node-less git libpq-dev  libldap2-dev libsasl2-dev libjpeg9 libjpeg9-dev; \
 		cd /tmp; wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz; tar -xf Python-3.7.2.tar.xz; cd Python-3.7.2; \
 		./configure --enable-optimizations; make -j 1;make altinstall
 
