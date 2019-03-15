@@ -6,7 +6,7 @@ RUN		apt-get update; apt-get -y upgrade
 
 #Instalo dependencias para la compilacion y compilacion 
 RUN		apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget; \
-		curl nodejs node-less git libpq-dev  libldap2-dev libsasl2-dev\
+		curl nodejs node-less git libpq-dev  libldap2-dev libsasl2-dev; \
 		cd /tmp; wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz; tar -xf Python-3.7.2.tar.xz; cd Python-3.7.2; \
 		./configure --enable-optimizations; make -j 1;make altinstall
 
@@ -14,8 +14,8 @@ RUN		apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libns
 RUN		/bin/ln -s /usr/local/bin/python3.7 /usr/bin/python; /bin/ln -s /usr/local/bin/pip3.7 /usr/bin/pip; \
 		useradd -m -d /opt/odoo -U -r -s /bin/bash odoo; cd /tmp/; wget https://builds.wkhtmltopdf.org/0.12.1.3/wkhtmltox_0.12.1.3-1~bionic_amd64.deb; \
 		apt-get -y install fontconfig fontconfig-config fonts-dejavu-core libbsd0 libexpat1 libfontconfig1 libfontenc1 libfreetype6 libjpeg-turbo8 \ 
-		libpng16-16 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxrender1 multiarch-support ucf x11-common xfonts-75dpi xfonts-base \ xfonts-encodings xfonts-utils libxext6 libxrender1 x11-common xfonts-75dpi xfonts-base xfonts-encodings xfonts-utils; \
-		dpkg -i /tmp/wkhtmltox_0.12.1.3-1~bionic_amd64.deb
+		libpng16-16 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxrender1 multiarch-support ucf x11-common xfonts-75dpi xfonts-base \ xfonts-encodings xfonts-utils libxext6 libxrender1 x11-common xfonts-75dpi xfonts-base xfonts-encodings xfonts-utils
+		#dpkg -i /tmp/wkhtmltox_0.12.1.3-1~bionic_amd64.deb
 
 
 #Instalando odoo
