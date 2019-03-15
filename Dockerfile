@@ -23,7 +23,7 @@ RUN		/bin/ln -s /usr/local/bin/python3.7 /usr/bin/python; /bin/ln -s /usr/local/
 RUN		git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0 /opt/odoo/odoo11; pip install --upgrade pip; pip install wheel; \
 		pip install suds-py3; pip install psycopg2; pip install image; mkdir /custom-addons; mkdir /etc/odoo; chown -R odoo.odoo /opt/odoo; \
 		chown -R odoo.odoo /etc/odoo; chown -R odoo.odoo /custom-addons; cp -rp /opt/odoo/odoo11/debian/odoo.conf /etc/odoo/odoo11.conf; \
-		pip install -f /opt/odoo/odoo11/requirements.txt; rm -rf /tmp/*
+		pip install -r /opt/odoo/odoo11/requirements.txt; rm -rf /tmp/*
 
 
 
