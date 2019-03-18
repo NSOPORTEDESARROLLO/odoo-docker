@@ -32,7 +32,7 @@ EXPOSE	8069/tcp
 
 
 #Usuario quien corre el Servicio
-USER 	odoo
+#USER 	odoo   #no funciona y no se porque! ( soy muy estupido )
 
 
 ENTRYPOINT [ "/bin/su", "odoo", "-c /usr/bin/python /opt/odoo/odoo11/odoo-bin -c /etc/odoo/odoo11.conf" ]
