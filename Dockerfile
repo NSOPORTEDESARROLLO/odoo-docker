@@ -35,4 +35,4 @@ EXPOSE	8069/tcp
 USER 	odoo
 
 
-ENTRYPOINT [ "/usr/bin/python", "/opt/odoo/odoo11/odoo-bin", "-c /etc/odoo/odoo11.conf" ]
+ENTRYPOINT [ "/bin/su", "odoo", "-c /usr/bin/python /opt/odoo/odoo11/odoo-bin -c /etc/odoo/odoo11.conf" ]
