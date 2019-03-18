@@ -1,5 +1,5 @@
 FROM 	ubuntu:bionic
-
+MAINTAINER	cnaranjo@nsoporte.com
 
 #Acturlizo la imagen
 RUN		apt-get update; apt-get -y upgrade
@@ -26,5 +26,13 @@ RUN		git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0 /opt/odo
 		pip install -r /opt/odoo/odoo11/requirements.txt; rm -rf /tmp/*
 
 
+#Puertos disponibles
+EXPOSE	8069/tcp
 
-ENTRYPOINT [ "/bin/su", "odoo", "-c /usr/bin/python /opt/odoo/odoo11/odoo-bin -c /etc/odoo/odoo11.conf" ]
+
+
+#Usuario quien corre el Servicio
+USER 	odoo
+
+
+ENTRYPOINT [ "/usr/bin/python", "/opt/odoo/odoo11/odoo-bin", "-c /etc/odoo/odoo11.conf" ]
