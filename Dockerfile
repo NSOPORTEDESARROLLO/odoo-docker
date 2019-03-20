@@ -30,7 +30,7 @@ RUN		git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0 /opt/odo
 RUN		cd /tmp; \
 		wget https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/postgresql-10/10.6-0ubuntu0.18.04.1/postgresql-10_10.6.orig.tar.bz2; \
 		tar -xvf postgresql-10_10.6.orig.tar.bz2; cd postgresql-10.6; ./configure --prefix=/opt/postgresql; make; make install; \
-		/bin/ln -s /opt/postgresql/bin/pg_dump /usr/bin/; rm -rf /tmp/*
+		/bin/ln -s /opt/postgresql/bin/pg_dump /usr/bin/; /bin/ln -s /opt/postgresql/bin/psql /usr/bin/; rm -rf /tmp/*
 
 
 
