@@ -26,13 +26,19 @@ RUN		git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0 /opt/odo
 		pip install -r /opt/odoo/odoo11/requirements.txt; rm -rf /tmp/*
 
 
+#Utilidades Postgresql
+RUN		cd /tmp; \
+		wget https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/postgresql-10/10.6-0ubuntu0.18.04.1/postgresql-10_10.6.orig.tar.bz2; \
+		tar -xvf postgresql-10_10.6.orig.tar.bz2; cd postgresql-10.6; ./configure --prefix=/opt/postgresql; make; make install; \
+		/bin/ln -s /opt/postgresql/bin/pg_dump /usr/bin/; rm -rf /tmp/*
+
+
+
+
+
 #Puertos disponibles
 EXPOSE	8069/tcp
 
-
-
-#Usuario quien corre el Servicio
-#USER 	odoo   #no funciona y no se porque! ( soy muy estupido )
 
 
 ENTRYPOINT [ "/bin/su", "odoo", "-c /usr/bin/python /opt/odoo/odoo11/odoo-bin -c /etc/odoo/odoo11.conf" ]
