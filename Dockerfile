@@ -14,7 +14,7 @@ RUN		apt-get -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev l
 RUN		/bin/ln -s /usr/local/bin/python3.7 /usr/bin/python; /bin/ln -s /usr/local/bin/pip3.7 /usr/bin/pip; \
 		useradd -m -d /opt/odoo -U -r -s /bin/bash odoo; cd /tmp/; wget https://builds.wkhtmltopdf.org/0.12.1.3/wkhtmltox_0.12.1.3-1~bionic_amd64.deb; \
 		apt-get -y install fontconfig fontconfig-config fonts-dejavu-core libbsd0 libexpat1 libfontconfig1 libfontenc1 libfreetype6 libjpeg-turbo8; \		
-		apt-get -y xfonts-encodings xfonts-utils libxext6 libxrender1 x11-common xfonts-75dpi xfonts-base xfonts-encodings xfonts-utils libjpeg9-dev; \
+		apt-get -y install xfonts-encodings xfonts-utils libxext6 libxrender1 x11-common xfonts-75dpi xfonts-base xfonts-encodings xfonts-utils libjpeg9-dev; \
 		apt-get -y install libpng16-16 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxrender1 multiarch-support ucf x11-common xfonts-75dpi xfonts-base; \
 		dpkg -i /tmp/wkhtmltox_0.12.1.3-1~bionic_amd64.deb
 
