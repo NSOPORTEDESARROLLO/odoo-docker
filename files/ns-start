@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+#Check Files
+if [ ! -f /etc/odoo/odoo11.conf ];then
+	cp -rf /opt/samples/odoo11.conf /etc/odoo/odoo11.conf
+fi
+
+
+#Fixing Permissions 
+chown -R odoo.odoo /opt/data
+chown -R odoo.odoo /custom-addons
+chown -R odoo.odoo /etc/odoo
+
+
+#Main Odoo Process 
+exec /bin/su odoo -c "/usr/bin/python /opt/odoo/odoo11/odoo-bin -c /etc/odoo/odoo11.conf"
